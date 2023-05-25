@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    
+    <script>
+        imgarr = ["grass.jpg", "mountains.jpg", "sunset.jpg", "waterdrop.jpg"]
+        index = 0;
+        function nextimg() {
+            index++;
+            if (index == imgarr.length)
+                index = 0;
+            document.getElementById("mycoll").src= imgarr[index];
+        }
+        function previousimg() {
+            index--;
+            if (index == -1)
+                index = imgarr.length - 1;
+
+            document.getElementById("mycoll").src= imgarr[index];
+            
+        }
+    </script>
+</head>
+<body>
+    <img src="grass.jpg" width="400" height="400" id="mycoll" />
+    <br />
+    <button onclick="nextimg()">Next</button>
+    <button onclick="previousimg()">Previous</button>
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function acceptArray(num) {
+            var num = parseInt(prompt("Enter size of array"));
+            var arr = [num];
+            var str = "";
+            for (var i = 0; i < num; i++) {
+                arr[i] = parseInt(prompt("Enter" + " " + i + " " + "th number"));
+            }
+            str = "The array elements are:"
+            for (var i = 0; i < num; i++) {
+                str += arr[i] + ", ";
+            }
+            document.getElementById("ans").innerHTML = str;
+            arr.sort();
+            document.write("<br/>Numeric Sorting : " + arr.toString());
+            document.write("<br/> *****  <br/>");
+            arr.sort(mycompare);
+            document.write("<br/>Ordered Sorting : " + arr.toString());
+            document.write("<br/> *****  <br/>");
+            var sum = arr.reduce((v, sum) => { return v + sum });
+            document.write("<br/>sum of elements: " + sum);
+            document.write("<br/> *****  <br/>");
+            var n = arr.length;
+            var avg = arr.reduce(function (sum, value) { return sum + value; }, 0) / arr.length;
+            document.write("<br/>Avg : " + avg);
+            document.write("<br/> *****  <br/>");
+            var max = arr.reduce((function (a, b) { return Math.max(a, b) }));
+            document.write("<br/>Max : " + max);
+            document.write("<br/> *****  <br/>");
+            var min = arr.reduce((function (a, b) { return Math.min(a, b) }));
+            document.write("<br/>Min : " + min);
+            document.write("<br/> *****  <br/>");
+            var even = arr.every(e => e % 2 == 0);
+            document.write("<br/>Even:" + even.toString());
+            document.write("<br/> *****  <br/>");
+            var odd = arr.every(e => e % 2 != 0)
+            document.write("<br/>Odd:" + odd.toString());
+            document.write("<br/> *****  <br/>");
+            var prime = arr.every(num => {
+                var flag = true;
+                for (var i = 2; i < num; i++) {
+                    if (num % i == 0)
+                        flag = false;
+                    break;
+                }
+                if (flag == true)
+                    return num;
+            })
+            document.write("<br/>prime:" + prime);
+            document.write("<br/> *****  <br/>");
+            var evennoarr = arr.filter(e => e % 2 == 0)
+            document.write("<br/>Even array:" + evennoarr.toString());
+            document.write("<br/> *****  <br/>");
+            var oddnoarr = arr.filter(e => e % 2 != 0)
+            document.write("<br/>Odd array:" + oddnoarr.toString());
+            document.write("<br/> *****  <br/>");
+
+
+        }
+        function mycompare(a, b) {
+            return a - b;
+        }
+
+    </script>
+</head>
+<body>
+    <form>
+        <!-- Enter the size of array:
+        <input type="number" name="num" />
+        <br />
+           -->
+        <input type="button" value="check" onclick="acceptArray()" />
+
+    </form>
+    <p id="ans"></p>
+
+
+</body>
+</html>
